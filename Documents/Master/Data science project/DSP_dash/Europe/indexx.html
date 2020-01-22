@@ -1,0 +1,180 @@
+<!-- Name: Simon Kemmere
+Student number: 10798250
+Course: Programmeerproject
+Description: File containing the main html so the project can be run -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>Threatened fishspecies and plastic production</title>
+        <link rel="stylesheet" type="text/css" href="css/fish.css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="javascripts/d3-tip.js"></script>
+        <script src="javascripts/main.js"></script>
+        <script src="javascripts/bar.js"></script>
+        <script src="javascripts/pie.js"></script>
+        <script src="javascripts/harbours.js"></script>
+        <script src="javascripts/dropdown.js"></script>
+        <script src="javascripts/map.js"></script>
+        <script src="javascripts/fishMap.js"></script>
+        <script src="javascripts/moveMaps.js"></script>
+      </head>
+
+    <body>
+
+      <!-- Create navbar (source: bootstrap) -->
+      <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Something Fishy</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#top">Home</a></li>
+            <li><a href="#story">Storytelling</a></li>
+            <li><a href="#variables">Variables explained</a></li>
+            <li><a href="#visualisations">Visualisations</a></li>
+            <li><a href="#sources">Sources</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- jumbotron container for header -->
+      <div class = "jumbotron text-center" id = "top">
+        <h2>Plastic production, threatened fish species and plastic collection from the oceans</h2>
+          <p style = "font-size: 30px">By Simon Kemmere, 10798250</p>
+      </div>
+      <div class = "container" id = "story">
+        <br>
+        <br>
+        <h2 class = "title">Introduction</h2>
+        <p>
+          Changes to the current ecosystems in our oceans are being detected <a href="http://science.sciencemag.org/content/318/5857/1737">(Source)</a>. These changes are mainly due to overfishing,
+          but the second biggest influence can be led back to the amount of plastic found in oceans. Considering reports from all over the world <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913">(SOURCE)</a>
+          there can only be one conclusion: the amount of plastic that can be found in the ocean has significantly increased. Fish, mammals and other living creatures
+          in the oceans are being deformed via plastics or die after ingesting these plastics, either through choking or just of the quantity of ingested plastic.
+          <a href="https://www.nrc.nl/nieuws/2018/06/03/in-thailand-aangespoelde-griend-dood-na-eten-8-kilo-plastic-a1605231">This</a> pilot whale ate 8 kilogrammes of plastic and then wound up on a beach in Thailand. This report is part of a series, where it becomes clear
+          that there's a certain urgency to solve this problem. To further help ignite this flame of urgency, this website will guide the reader through a series of
+          visualisations concerning the production of plastic in several countries over the world, the amount of threatened fish species in some of these countries and
+          what is being done over the years (2014-2016) by countries to decrease the amount of plastic in the oceans.
+      </div>
+      <div class = "container" id = "variables">
+       <div class = "row">
+         <div class = "col-sm-6" id = "plasticProd">
+           <h2 id = "plasticTitle">Plastic production</h2>
+           <p>
+             Plastic is used in everything we use daily. Think of your lunchcontainer, cue tips, and even our vegetables are wrapped in plastic.
+             After it's used, it's most likely thrown away. That might be in the correct dirtcontainers, or perhaps on the street, where it might end up
+             in the oceans, either through wind or any other possibility. But before it ends up in the oceans, all this plastic needs to be produced somewhere.
+             Therefore I've visusalised the plastic production in several countries around the world. The darker the coloring of the country, the higher the plastic
+             production in this country. When hovering over a country, not an ocean, it's possible to zoom in while using the scroll functionality of your computer.
+             This way it is possible to zoom in on specific area's of the world, making it easier for you, the user, to get the data you're interested in. When a country has submitted
+             data, clicking on a country will update either both the bar chart and pie chart, or one independently if the other doesn't have any available data.
+
+           </p>
+        </div>
+        <div class = "col-sm-6" id = "fishSpecies">
+          <h2 id = "fishTitle">Threatened fish species</h2>
+          <p>
+            Besides all aspects influencing the ecosystems and the amount of fishspecies mentioned in the introduction, plastic is one of the main reasons these changes happen.
+            Therefore it might be logical to visualise the degree in which fishspecies are threatened in relation to  the different kind of existing fishspecies:
+            marine fish versus freshwater fish. These numbers are visualised in the bar chart on this website. Next to the bar chart, there is a pie chart containing the number
+            of threatened fishspecies as percentage of all known fishspecies of that kind (marine vs. freshwater fish) in relation to the different kind of fish (marine vs. freshwater fish).
+            That means, the percentage shown in the pie chart, is the ratio threatened freshwater fish vs. threatened marine fish as percentage of either the know freshwater fishspecies or
+            marine fishspecies. Hovering over the bar chart will show the absolute numbers of fish, for that kind of fish.
+          </p>
+        </div>
+        </div>
+      </div>
+      <div class = "container" id = "visualisations">
+        <h2 class = "title">Visualisations</h2>
+        <div class = "row" id = "worldZoom">
+          <div class = "col-sm-9" id = "worldmap">
+            <div id = "mapCol">
+              <h2 id = "worldMapTitle">Worldmap</h2>
+              <div id = "map"></div>
+            </div>
+          </div>
+          <div class = "col-sm-3" id = "mapData">
+            <div id = "mapDataCol">
+              <h2 id = "mapDataTitle">Switch data</h2>
+              <div id = "dataSwitch">
+                <p>Color the map with different data. Plastic data is automatically selected.
+                  Switching to fish data will color the countries where data about threatened
+                  fishspecies is available.
+                </p>
+                <br>
+                <form>
+                  <input type="radio" name="data" id = "plastic" value="plastic" checked>Plastic data<br>
+                  <input type="radio" name="data" id = "fish" value="fish" >Fish data<br>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "row" id = "legendWorldMap">
+          <div class = "col-sm-12" id = "legendMap">
+            <div id = "legendCol">
+              <h4 id = "legendTitle"></h4>
+              <div id = "mapLegend"></div>
+            </div>
+          </div>
+        </div>
+        <div class = "row" id = "pieBar">
+          <div class = "col-sm-5" id = "barCol">
+            <h2 id = "barChartTitle"></h2>
+            <div id = "bar"></div>
+          </div>
+          <div class = "col-sm-4" id = "pieCol">
+            <h2 id = "pieChartTitle"></h2>
+            <div id = "pie"></div>
+          </div>
+          <div class = "col-sm-3" id = "pieLegend"></div>
+        </div>
+        <div class = "row" id = "worldHarbour">
+          <div class = "col-sm-4" id = "explainHarbour">
+            <div id = "harbourText">
+              <h2 id = "harbourSolution">Fishing for waste</h2>
+              Luckily it isn't all bad. Since 2014, media attention has produced the idea that several harbours in a selection of countries have decided to fish for waste
+              in the waters in and around their harbour. Data from the following years shows a significant rise in extra harbours joining. In the map on the right
+              all harbours that have joined are shown. The size of the harbour is a representation of how much plastic waste has been extracted from the seas. The bigger the harbour,
+              the more plastic was extracted. On the right side of the map is a button, where different years of data can be loaded into the map. With this map too, it is possible
+              to zoom in on any desired location within the scales of the map. Zooming in will lead to a clearer picture which harbour does a better job at extracting waste from the oceans.
+            </div>
+          </div>
+          <div class = "col-sm-6" id = "harbour">
+            <div id = "harbourCol">
+              <h2 id = "harbourTitle"></h2>
+              <div id = "harbourMap"></div>
+            </div>
+          </div>
+
+          <!-- Dropdown button (source: https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp) -->
+          <div class = "col-sm-2" id = "dropButton">
+            <div class = "dropdown">
+              <button onclick = "dropDown()" class = "dropbtn">Change year</button>
+              <select id = "myDropdown" class = "dropdown-content">
+                <option value = "2014">2014</option>
+                <option value = "2015">2015</option>
+                <option value = "2016">2016</option>
+              </select>
+            </div>
+          </div>
+          <div class = "col-sm-2" id = "harbourLegend"></div>
+        </div>
+        <div id = "sources">
+          <br>
+          <br>
+          <br>
+          <h4>Sources</h4>
+          <li><a href = "http://geodata.grid.unep.ch/options.php?selectedID=2258&selectedDatasettype=17">Plastic data</a></li>
+          <li><a href = "https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE">Fish data</a></li>
+          <li><a href = "https://odims.ospar.org/odims_data_files/">Harbour data</a></li>
+      </div>
+  </body>
+</html>
